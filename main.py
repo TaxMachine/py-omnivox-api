@@ -1,5 +1,6 @@
 import crawler.account as cr
 from crawler.mio import MIO
+from crawler.lea import LEA
 import json, requests
 
 def config():
@@ -15,5 +16,7 @@ omnivoxacc = cr.OmnivoxAccount(config["username"], config["password"], config["h
 #addrp = omnivoxacc.getAdressePrincipale()
 #phone = omnivoxacc.getPhoneNumber()
 #photo = omnivoxacc.getStudentPicture()
-mio = MIO(config["username"], config["password"], config["headers"])
-getmio = mio.getMIO()
+#mio = MIO(config["username"], config["password"], config["headers"])
+#getmio = mio.getMIO()
+lea = LEA(config["username"], config["password"], config["headers"])
+notif = lea.getLEA()

@@ -7,6 +7,7 @@ class User:
         self.header = header
 
     def openSession(self):
+        # Opens an Omnivox session to store all the cookies because ASP.NET fucking sucks why they didn't made a fucking graphql JSON API 😠
         s = requests.Session()
         getform = s.get(f"https://cegepmontpetit.omnivox.ca/Login/Account/Login?ReturnUrl=%2fintr%2f", headers=self.header)
         parsedform = bs4.BeautifulSoup(getform.text, features="lxml")
