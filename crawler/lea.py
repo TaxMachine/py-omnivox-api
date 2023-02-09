@@ -35,6 +35,13 @@ class LEA:
             
             teacher = desc.split(", ")[-1]
             group = desc.split(" - ")[0]
+
+            documentslink = cours.find("a", class_=["card-panel-item-wrapper", "action"]).attrs["href"]
+            documentstext = s.get(documentslink, headers=self.headers)
+            parseddocuments = BeautifulSoup(documentstext.text, "lxml")
+            categorie2 = parseddocuments.find("table", attrs={"id": "categorie2"})
+            categorie3 = parseddocuments.find("table", attrs={"id": "categorie3"})
+            
             lstCours.append(
                 {
                     "name": normalize(name),
